@@ -1,24 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
+import Home from './Pages/Home';
+import Page404 from './Containers/Page404';
+import ThemeContext from './theme-context';
+import { useState } from 'react';
+import Category from './Pages/Category';
+import About from './Pages/About';
+
+
+let pages = [
+  { path: '/', component: <Home />, exact: true },
+  { path: '/mobileapps', component: <About />, },
+  { path: '/:category', component: <Category />, },
+  { component: <Page404 /> },
+]
+
+
 function App() {
+  const [theme, setTheme] = useState('dark');
+
+  const toggleTheme = () => {
+    setTheme(theme == 'dark' ? 'light' : 'dark')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className="App">
+        <Switch>
+          {pages.map((page, index) => {
+            return <Route path={page.path} exact={page.exact} key={page.path}>
+              {page.component}
+            </Route>
+          })}
+        </Switch>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
