@@ -1,10 +1,7 @@
 import './App.css';
-
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom'
 import Home from './Pages/Home';
 import Page404 from './Containers/Page404';
@@ -23,17 +20,17 @@ let pages = [
 
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
-    setTheme(theme == 'dark' ? 'light' : 'dark')
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App">
         <Switch>
-          {pages.map((page, index) => {
+          {pages.map(page => {
             return <Route path={page.path} exact={page.exact} key={page.path}>
               {page.component}
             </Route>

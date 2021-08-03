@@ -1,3 +1,33 @@
- .content {
-     min-height: 90vh;
- }
+.content {
+    min-height: 90vh;
+}
+
+.light {
+    background-color: #fff;
+}
+
+.light p,
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light span,
+.light a {
+    color: #2a2a2a !important;
+}
+
+.dark {
+    background-color: #2a2a2a;
+}
+
+.dark p,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark span,
+.dark a {
+    color: #fff !important;
+}

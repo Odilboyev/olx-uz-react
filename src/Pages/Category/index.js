@@ -8,7 +8,7 @@ const Category = () => {
     const { category } = useParams();
     console.log(category);
 
-    const obj = datas.filter(v => v.category == category)[0];
+    const obj = datas.filter(v => v.category === category)[0];
     const data = obj.data;
     console.log(obj);
     console.log(data);
