@@ -4,24 +4,30 @@ import { Link } from 'react-router-dom';
 import ThemeContext from "./../../theme-context";
 import { Button } from 'reactstrap';
 import HeaderWrapper from './HeaderWrapper';
+import {FaRegHeart, FaRegUser} from 'react-icons/fa'
 
-let menu = [
-    { to: "/", title: "Home" },
-    { to: "/mobileapps", title: "Мобильные приложения" },
-    { to: "/category", title: "Category" },
-]
 
 const Header = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
-    // console.log(theme, toggleTheme);
 
     return (
-        <HeaderWrapper className={`shadow mb-3 ${theme}`}>
-            <div className="container py-3 d-flex justify-content-between align-items-center">
-                <div>
-                    {menu.map(item => <Link to={item.to} key={item.to} className="me-3 btn">{item.title}</Link>)}
+        <HeaderWrapper className={`shadow mb-3 ${theme} fixed-top`}>
+            <div className="container py-3 d-flex justify-content-between align-items-center ">
+
+                <Link to='/' >
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/OLX_New_Logo.png/200px-OLX_New_Logo.png" className="w-25 mr-auto" />
+                </Link>
+
+                <div className="ml-auto d-flex justify-content-evenly align-items-center w-50">
+                    <p >
+                        O'z | Py
+                    </p>
+                    <p className='m-0'><FaRegHeart/></p>
+                    <p ><FaRegUser/> Мой профиль</p>
+                    <Button onClick={toggleTheme} color={theme === "dark" ? "light" : "dark"}>{theme === "dark" ? "Day" : "Night"}</Button>
+                    
                 </div>
-                <Button onClick={toggleTheme} color={theme === "dark" ? "light" : "dark"}>{theme === "dark" ? "Day" : "Night"}</Button>
+
             </div>
         </HeaderWrapper>
     )

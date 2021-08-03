@@ -8,10 +8,10 @@ import ThemeContext from "./../../theme-context";
 const Container = (props) => {
     const {theme} = useContext(ThemeContext)
     return (
-        <div className={theme}>
+        <div className={`${theme} `}>
             <Header />
             <HeaderWrapper >
-                <div className='content'>
+                <div className='content mt-5'>
                     {props.children}
                 </div>
             </HeaderWrapper>
