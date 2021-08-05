@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import Container from '../../Containers/Container'
 import './category.css'
 import datas from "../../Data";
 import CategoryWrapper from './CategoryWrapper';
+import ThemeContext from "./../../theme-context";
 
 const Category = () => {
     const { category } = useParams();
@@ -11,12 +12,14 @@ const Category = () => {
 
     const obj = datas.filter(v => v.category === category)[0];
     const data = obj.data;
-    console.log(obj);
-    console.log(data);
+
+    const { theme, toggleTheme } = useContext(ThemeContext);
+    console.error(theme);
 
     return (
+
         <Container>
-            <CategoryWrapper>
+            <CategoryWrapper className={theme}>
                 <div className="container my-5 py-5">
                     <h1>Category: {category}</h1>
                     <div className="row">
