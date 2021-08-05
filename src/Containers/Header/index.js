@@ -1,14 +1,18 @@
-// import './Header.css';
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import ThemeContext from "./../../theme-context";
 import { Button } from 'reactstrap';
 import HeaderWrapper from './HeaderWrapper';
-import {FaRegHeart, FaRegUser} from 'react-icons/fa'
+import { FaRegHeart, FaRegUser } from 'react-icons/fa'
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from '../../Redux/actions';
 
 
 const Header = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext);
+    const theme = useSelector(state => state.theme)
+    console.log(theme)
+    
+    const dispatch = useDispatch()
+    const toggle = () => dispatch(toggleTheme())
 
     return (
         <HeaderWrapper className={`shadow mb-3 ${theme} fixed-top`}>
@@ -22,10 +26,10 @@ const Header = () => {
                     <p >
                         O'z | Py
                     </p>
-                    <p className='m-0'><FaRegHeart/></p>
-                    <p ><FaRegUser/> Мой профиль</p>
-                    <Button onClick={toggleTheme} color={theme === "dark" ? "light" : "dark"}>{theme === "dark" ? "Day" : "Night"}</Button>
-                    
+                    <p className='m-0'><FaRegHeart /></p>
+                    <p ><FaRegUser /> Мой профиль</p>
+                    <Button onClick={toggle} color={theme === "dark" ? "light" : "dark"}>{theme === "dark" ? "Day" : "Night"}</Button>
+
                 </div>
 
             </div>
