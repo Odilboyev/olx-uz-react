@@ -44,30 +44,19 @@ const HomeWrapper = styled.div`
 
   .startbusiness{
     background-color: #002F34;
-    .line{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      .title{
-        padding: 0 40px;
-        h4{
-          color: #fff !important;
-        }
-      }
-      button:hover{
-        background-color: #002F34;
-        color: #fff;
-      }
-
-      span{
-        background-color: #fff;
-      }
+    h4{
+      color: #fff !important;
     }
   }
 
   .olx-about{
     background-color: #CBF7EE;
+    p{
+      color: #002F34 !important;
+    }
+  }
+  .text-black{
+    color: #002F34 !important;
   }
   
 `

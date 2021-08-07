@@ -34,12 +34,11 @@ input, .input-container {
     align-items: center;
     transition: all 0.5s;
     cursor: pointer;
-    &:hover{
-        background-color: #002F34;
-        p, svg{
-            color: #fff !important;
-        }
+    background-color: #002F34;
+    p, svg{
+        color: #fff !important;
     }
+    
 }
 `
 export default InputWrappper;

@@ -21,8 +21,7 @@ const Category = () => {
         dispatch(toggleLike({ [category]: newData }))
       
     }
-
-    console.log(data)
+ 
 
     const theme = useSelector(state => state.theme)
 

@@ -14,7 +14,6 @@ import About from './Pages/About';
 //REDUX
 import { Provider } from 'react-redux';
 import store from './Redux/store'
-
 let pages = [
   { path: '/', component: <Home />, exact: true },
   { path: '/mobileapps', component: <About />, },
@@ -24,11 +23,6 @@ let pages = [
 
 
 function App() {
-  const [theme, setTheme] = useState('light');
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-  }
 
   return (
     <Provider store={store}>
